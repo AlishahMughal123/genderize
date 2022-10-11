@@ -1,14 +1,42 @@
-<htm>
+<html>
     <head> 
         <title>Genderize</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+      />
         <link rel="stylesheet" href="style.css">
     </head>
-    <bod>
-        <div class="container">
-            <form action="" class="search-bar">
-            <input type="search" placeholder="search name" name="q">
-            <button type="submit"></button>
+    <body>
+        <div id="test" class="container">
+            <form class="search-bar">
+            <input type="search" placeholder="search name" name="name=">
+            <button class="bi bi-search" type="button" onclick="locDoc()"></button>
+            
             </form>    
         </div>
-    </bod>
-</htm>
+        <script>
+            function handleError(err) {
+                console.log("Oh NO!");
+                console.log(err);
+            }
+
+            const userE1 = document.querySelector(".?name");
+
+            async function displayUser(username) {
+                userE1.textContent = 'loading...';
+            const endpoint = "https://api.genderize.io?name=";
+            const genderize = fetch(endpoint);
+            genderize.then(response => {
+                return response.json();
+            }).then((data) => {
+                    console.log(data);
+                    console.log(data.name);
+                    userE1.textContent = `{data.name}`;
+                }).catch(handleError);
+
+            }
+        </script>
+    </body>
+</html>
