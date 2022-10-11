@@ -9,33 +9,23 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div id="test" class="container">
+        <div class="container">
             <form class="search-bar">
             <input type="search" placeholder="search name" name="name=">
-            <button class="bi bi-search" type="button" onclick="locDoc()"></button>
+            <p id="demo"></p>
+            <button class="bi bi-search" type="button" onclick="loadDoc()"></button>
             
             </form>    
         </div>
         <script>
-            function handleError(err) {
-                console.log("Oh NO!");
-                console.log(err);
-            }
 
-            const userE1 = document.querySelector(".?name");
-
-            async function displayUser(username) {
-                userE1.textContent = 'loading...';
-            const endpoint = "https://api.genderize.io?name=";
-            const genderize = fetch(endpoint);
-            genderize.then(response => {
-                return response.json();
-            }).then((data) => {
-                    console.log(data);
-                    console.log(data.name);
-                    userE1.textContent = `{data.name}`;
-                }).catch(handleError);
-
+            function loadDoc(){
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+                xhttp.open("GET", "https://api.genderize.io?name=");
+                xhttp.send();
             }
         </script>
     </body>
