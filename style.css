@@ -9,19 +9,19 @@
     width: 100%;
     min-height: 100vh;
     padding: 5%;
-    background-image: url(back.jpeg);
+    background-image: url(background.jpeg);
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    flex-direction: column;
 }
 
 .search-bar{
     width: 100%;
     max-width: 700px;
-    background: rgba(12, 96, 223, 0.725);
+    background: #4C7FD2;
     display: flex;
     align-items: center;
     border-radius: 60px;
@@ -29,13 +29,18 @@
 }
 
 .search-bar input{
-    background: transparent;
+    background: #4C7FD2;
     flex: 1;
     border: 0;
     outline: none;
     padding: 24px 20px;
     font-size: 20px;
     color: #cac7ff;
+}
+
+#result {
+    color: green;
+    margin-top: 5px;
 }
 
 ::placeholder{
